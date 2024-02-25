@@ -2,18 +2,30 @@ from PyQt5.QtWidgets import *
 
 app = QApplication([])
 
+app.setStyleSheet("""
+        QWidget {
+            background: #B6FFD6;
+        }
+        """)
+
 window = QWidget()
 window.resize(500, 200)
 language1 = QComboBox()
 language2 = QComboBox()
 translatebtn = QPushButton("Перекласти")
-language1.addItems(['Українська', 'Англійська', 'Французька'])
-language2.addItems(['Англійська', 'Французька', 'Українська'])
+languages = {
+    "Українська": "uk",
+    "Англійська": "en",
+    "Француька": "fr"
+
+}
+language1.addItems(languages)
+language2.addItems(languages)
 text_ed1 = QTextEdit()
 text_ed1.setPlaceholderText('Введіть текст...')
 text_ed2 = QTextEdit()
 text_ed2.setPlaceholderText('Переклад...')
-changebtn = QPushButton("")
+changebtn = QPushButton("<>")
 
 mainline = QVBoxLayout()
 line = QHBoxLayout()
@@ -29,12 +41,15 @@ mainline.addWidget(text_ed2)
 
 def translate():
     a = text_ed1.toPlainText()
+    b = language1.currentText()
+
     a = a.upper()
     text_ed2.setText(a)
 
 def change():
     a = text_ed2.toPlainText()
     b = text_ed1.toPlainText()
+
 
     text_ed2.setText(b)
     text_ed1.setText(a)
