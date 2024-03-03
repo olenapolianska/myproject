@@ -4,7 +4,24 @@ app = QApplication([])
 
 app.setStyleSheet("""
         QWidget {
-            background: #B6FFD6;
+            background: #DAE2FF;
+            font-size: 15px;
+            font-family: Courier New;
+            color: teal;
+            border-style: outset;
+            border-width: 2px;
+            border-color: cornflowerblue;
+            border-radius: 5px;
+        }
+        QPushButton {
+            background: #BDCBFF;
+            
+        }
+        QComboBox {
+            background: #7692FF;
+            color: midnightblue;
+            border-style: outset;
+            border-color: royalblue;
         }
         """)
 
