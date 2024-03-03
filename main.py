@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import *
+from googletrans import Translator
 
 app = QApplication([])
 
@@ -33,7 +34,73 @@ translatebtn = QPushButton("Перекласти")
 languages = {
     "Українська": "uk",
     "Англійська": "en",
-    "Француька": "fr"
+    "Француька": "fr",
+    "Італійська": "",
+    'Африканська': 'af',
+    'Арабська': 'ar',
+    'Американська': 'hy',
+    'Азербайджанська': 'az',
+    'Болгарська': 'bg',
+    'Китайська (спрощена)':'zh-cn',
+    'Китайська (традиційна)':'zh-tw',
+
+
+    'eo': 'esperanto',
+    'et': 'estonian',
+    'tl': 'filipino',
+    'fi': 'finnish',
+    'fr': 'french',
+    'fy': 'frisian',
+    'gl': 'galician',
+    'ka': 'georgian',
+    'de': 'german',
+    'el': 'greek',
+    'gu': 'gujarati',
+    'ht': 'haitian creole',
+    'ha': 'hausa',
+    'haw': 'hawaiian',
+    'iw': 'hebrew',
+    'he': 'hebrew',
+    'hi': 'hindi',
+    'hmn': 'hmong',
+    'hu': 'hungarian',
+    'is': 'icelandic',
+    'ig': 'igbo',
+    'Індонезійська': 'id',
+    'Ірландська': 'ga',
+    'Італійська': 'it',
+    'Японська': 'ja',
+    'Каннада': 'kn',
+    'Казахська': 'kk',
+    'Корейська': 'ko',
+    'Киргиська': 'ky',
+    'Лаоська': 'lo',
+    'Латинська': 'la',
+    'Латиська': 'lv',
+    'Македонська': 'mk',
+    'Малайська': 'ms',
+    'Монгольська': 'mn',
+    'Непалі': 'ne',
+    'Норвезька': 'no',
+    'Перська': 'fa',
+    'Польська': 'pl',
+    'Португальська': 'pt',
+    'Сербська': 'sr',
+    'Словацька': 'sk',
+    'Словенська': 'sl',
+    'Сомалі': 'so',
+    'Іспанська': 'es',
+    'Суданська': 'su',
+    'Шведська': 'sv',
+    'Таджицька': 'tg',
+    'Тайська': 'th',
+    'Турецька': 'tr',
+    'Узбецька': 'uz',
+    "В'єтнамська": 'vi',
+
+
+
+
 
 }
 language1.addItems(languages)
@@ -59,14 +126,20 @@ mainline.addWidget(text_ed2)
 def translate():
     a = text_ed1.toPlainText()
     b = language1.currentText()
+    c = language2.currentText()
+    translator = Translator()
+    a = translator.translate(a, dest=languages[c])
 
-    a = a.upper()
-    text_ed2.setText(a)
+    text_ed2.setText(a.text)
 
 def change():
     a = text_ed2.toPlainText()
     b = text_ed1.toPlainText()
+    h = language1.currentText()
+    d = language2.currentText()
 
+    language1.setCurrentText(d)
+    language2.setCurrentText(h)
 
     text_ed2.setText(b)
     text_ed1.setText(a)
