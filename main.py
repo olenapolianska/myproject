@@ -1,6 +1,8 @@
 from PyQt5.QtWidgets import *
 from googletrans import Translator
 
+from setting import settings
+
 app = QApplication([])
 
 app.setStyleSheet("""
@@ -31,11 +33,10 @@ window.resize(500, 200)
 language1 = QComboBox()
 language2 = QComboBox()
 translatebtn = QPushButton("Перекласти")
+settingsbtn = QPushButton("налаштування")
 languages = {
     "Українська": "uk",
     "Англійська": "en",
-    "Француька": "fr",
-    "Італійська": "",
     'Африканська': 'af',
     'Арабська': 'ar',
     'Американська': 'hy',
@@ -43,29 +44,24 @@ languages = {
     'Болгарська': 'bg',
     'Китайська (спрощена)':'zh-cn',
     'Китайська (традиційна)':'zh-tw',
-
-
-    'eo': 'esperanto',
-    'et': 'estonian',
-    'tl': 'filipino',
-    'fi': 'finnish',
-    'fr': 'french',
-    'fy': 'frisian',
-    'gl': 'galician',
-    'ka': 'georgian',
-    'de': 'german',
-    'el': 'greek',
-    'gu': 'gujarati',
-    'ht': 'haitian creole',
-    'ha': 'hausa',
-    'haw': 'hawaiian',
-    'iw': 'hebrew',
-    'he': 'hebrew',
-    'hi': 'hindi',
-    'hmn': 'hmong',
-    'hu': 'hungarian',
-    'is': 'icelandic',
-    'ig': 'igbo',
+    'Есперанто': 'eo',
+    'Естонська': 'et',
+    'Фінська': 'fi',
+    'Французька': 'fr',
+    'Західно-фризька': 'fy',
+    'Галісійська': 'gl',
+    'Грузинська': 'ka',
+    'Німецька': 'de',
+    'Грецька': 'el',
+    'Гуджараті': 'gu',
+    'Гаїтянська': 'ht',
+    'Хауса': 'ha',
+    'Гавайська': 'haw',
+    'Іврит': 'he',
+    'Гінді': 'hi',
+    'Угорська': 'hu',
+    'Ісландська': 'is',
+    'Ігбо': 'ig',
     'Індонезійська': 'id',
     'Ірландська': 'ga',
     'Італійська': 'it',
@@ -99,10 +95,10 @@ languages = {
     "В'єтнамська": 'vi',
 
 
-
-
-
 }
+
+
+
 language1.addItems(languages)
 language2.addItems(languages)
 text_ed1 = QTextEdit()
@@ -119,6 +115,7 @@ mainline.addLayout(line2)
 line.addWidget(language1)
 line.addWidget(changebtn)
 line.addWidget(language2)
+line.addWidget(settingsbtn)
 line2.addWidget(text_ed1)
 mainline.addWidget(translatebtn)
 mainline.addWidget(text_ed2)
@@ -143,7 +140,7 @@ def change():
 
     text_ed2.setText(b)
     text_ed1.setText(a)
-
+settingsbtn.clicked.connect(settings)
 changebtn.clicked.connect(change)
 translatebtn.clicked.connect(translate)
 window.setLayout(mainline)
