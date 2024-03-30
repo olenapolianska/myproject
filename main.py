@@ -1,33 +1,34 @@
 from PyQt5.QtWidgets import *
 from googletrans import Translator
 
+from settheme import app
 from setting import settings
 
-app = QApplication([])
 
 app.setStyleSheet("""
         QWidget {
-            background: #DAE2FF;
+            background: #EFEFEF;
             font-size: 15px;
-            font-family: Courier New;
-            color: teal;
-            border-style: outset;
+            font-family:Courier New;
+            color: #848484;
+            border-style: solide;
             border-width: 2px;
-            border-color: cornflowerblue;
+            border-color:#B5B5B5
             border-radius: 5px;
         }
         QPushButton {
-            background: #BDCBFF;
-            
+            background: #FF9F9F;
+        }
+        QRadioButton {
+            background: #FF9F9F;
+
         }
         QComboBox {
-            background: #7692FF;
-            color: midnightblue;
-            border-style: outset;
-            border-color: royalblue;
+            background: #9B9B9B;
+            color: maroon;
+            border-color: crimson;
         }
         """)
-
 window = QWidget()
 window.resize(500, 200)
 language1 = QComboBox()
