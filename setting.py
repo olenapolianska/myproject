@@ -10,19 +10,27 @@ def settings():
 
     settheme = []
     tema = QLabel("Тема")
-    group1= QButtonGroup()
+    group1 = QButtonGroup()
     tema1 = QRadioButton("")
-    tema2 = QRadioButton("тема2")
-    tema3 = QRadioButton("тема3")
-    tema4 = QRadioButton("тема4")
-    tema5 = QRadioButton("тема5")
-    tema6 = QRadioButton("тема6")
+    tema1.setStyleSheet("background-image: url('тема1.png'); width:270px; height:70")
+    tema2 = QRadioButton("")
+    tema2.setStyleSheet("background-image: url('тема2.png'); width:270px; height:70")
+    tema3 = QRadioButton("")
+    tema3.setStyleSheet("background-image: url('тема3.png'); width:270px; height:70")
+    tema4 = QRadioButton("")
+    tema4.setStyleSheet("background-image: url('тема4.png'); width:270px; height:70")
+    tema5 = QRadioButton("")
+    tema5.setStyleSheet("background-image: url('тема5.png'); width:270px; height:70")
+    tema6 = QRadioButton("")
+    tema6.setStyleSheet("background-image: url('тема6.png'); width:270px; height:70")
+
     group1.addButton(tema1)
     group1.addButton(tema2)
     group1.addButton(tema3)
     group1.addButton(tema4)
     group1.addButton(tema5)
     group1.addButton(tema6)
+
 
 
 
@@ -192,13 +200,13 @@ def settings():
                     background:#C9B9FF;
                     border-color:#8C69FF;
                     color:#552BFF;
-                    border-radius: 2px;
+                    border-radius: 3px;
                 }
                 QRadioButton {
                     background:#C9B9FF;
                     border-color:#8C69FF;
                     color:#552BFF;
-                    border-radius: 2px;
+                    border-radius: 3px;
                 }
                 QComboBox {
                     background:#B69FFF;
